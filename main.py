@@ -23,7 +23,8 @@ def gameIntro():
 def game():
 
     for i in range(0):
+        print("")
 
 def iaDiffImp():
     #Premier tour
-    print("")
+    print("t")
