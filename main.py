@@ -1,6 +1,14 @@
 import random
 
-gameTabel = []
+gameTable = []
+gameTable.append("-", "-", "-")
+gameTable.append("-", "-", "-")
+gameTable.append("-", "-", "-")
+
+numberTable = []
+numberTable.append("1", "2", "3")
+numberTable.append("4", "5", "6")
+numberTable.append("7", "8", "9")
 
 def gameIntro():
     print("Welcome to our TicTaToe !")
@@ -28,3 +36,9 @@ def game():
 def iaDiffImp():
     #Premier tour
     print("t")
+
+def iaDiffNor():
+    print("lorem")
+
+def playerMode():
+    print("")
