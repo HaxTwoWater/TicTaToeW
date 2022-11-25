@@ -1,3 +1,5 @@
+#-------------------Made by HaxTwoWater and ShulingK-------------------
+
 from random import randint, choice
 import webbrowser
 
