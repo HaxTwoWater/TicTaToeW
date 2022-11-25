@@ -266,7 +266,100 @@
                         #On assigne a moved_choice Vrai
                         #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne))
                     #Sinon
-                        #Pour i et j dans ((0, 0), (0, 2), (2, 0), (2, 2))            
+                        #Pour i et j dans ((0, 0), (0, 2), (2, 0), (2, 2))
+                            #Si i est égal a la liste enemy_middle_position d'index 0 et 0 et que j est égal a la liste enemy_middle_position d'index 1 et 1 ou que i est égal a la liste enemy_middle_position d'index 1 et 0 et que j est égal a la liste enemy_middle_position d'index 0 et 1
+                                #Alors
+                                #On assigne a ligne i
+                                #On assigne a colonne j
+                                #On assigne a moved_choice Vrai
+                                #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne))
+                #Si sinon le retour de l'execution de la fonction len de parametre enemy_middle_position est égal a 0
+                    #Alors
+                    #On assigne a move le retour de l'execution de la fonction choice de parametre ((0, 1), (1, 0), (2, 1), (1, 2))
+                    #On assigne a colonne la liste move d'index 1
+                    #On assigne a ligne la liste move d'index 0
+                    #On assigne a moved_choice Vrai
+                    #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne))
+                #Sinon
+                    #On initialise la liste enemy_corner_position
+                    #Pour i et j dans ((0, 0), (0, 2), (2, 0), (2, 2))
+                        #Si le retour de l'execution de la fonction check_symbol de parametre (i,j) est égal a la liste symbols d'index du retour de l'execution de la fonction abs de parametre ai_player_number moins 1
+                            #Alors enemy_corner_position.append([i,j])
+                        #Si sinon la liste enemy_middle_position d'index 0 et 0 est égal a 1
+                            #Alors
+                            #On assigne a colonne la liste enemy_middle_position d'index 0, 1
+                            #On assigne a ligne la liste enemy_corner_position d'index 0 et 0
+                            #On assigne a moved_choice Vrai
+                            #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne))
+                        #Si sinon la liste enemy_middle_position d'index 0 et 1 est égal a 1
+                            #Alors
+                            #On assigne a colonne la liste enemy_corner_position d'index 0 et 1
+                            #On assigne a ligne la liste enemy_middle_position d'index 0, 0
+                            #On assigne a moved_choice Vrai
+                            #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne))
+            #Si sinon nbTour est égal a 5
+                #Alors
+                #On initialise la liste possible_move
+                #Pour i et j dans ((0, 0), (0, 2), (2, 0), (2, 2))
+                    #Si le retour de l'execution de la fonction check_symbol de parametre (i,j) est égal a " "
+                        #Alors possible_move.append([i, j])
+                #On assigne a move le retour de l'execution de la fonction choice de parametre possible_move
+                #On assigne a colonne la liste move d'index 1
+                #On assigne a ligne la liste move d'index 0
+                #On assigne a moved_choice Vrai
+                # #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne)) 
+            #Si sinon nbTour est égal a 7
+                #Alors
+                #On initialise la liste possible_move
+                #Pour i dans le retour de l'execution de la fonction range de parametre 3
+                    #Pour j dans le retour de l'execution de la fonction range de parametre 3
+                        #Si le retour de l'execution de la fonction check_symbol de parametre (i,j) est égal a " "
+                            #Alors possible_move.append([i, j])
+                #On assigne a move le retour de l'execution de la fonction choice de parametre possible_move
+                #On assigne a colonne la liste move d'index 1
+                #On assigne a ligne la liste move d'index 0
+                #On assigne a moved_choice Vrai
+                # #Retour de l'execution de la fonction ai_played_move de parammetre .append((ligne,colonne)) 
+    
+    #Si moved_choice est Vrai
+        #Alors
+        #On assigne a la liste grid d'index ligne et colonne la liste symbols d'index ai_player_number
+    #Afficher "Le bot a joué la case (", colonne + 1, ",", ligne + 1, ")"
+    #Si le retour de l'execution de la fonction checkwin de parametre (ligne,colonne) et ai_playernumber+1 est égal a Vrai
+        #Alors
+        #Retour de l'executionde la fonction displayGrid
+        #Retourner Vrai
+    #Retourner Faux
 
+#Definir ai_morpion_impossible_game
+    #On assigne a player_number le retour de l'execution de la fonction randint de parametre 0,1
+    #On assigne a ai_player_number le retour de l'execution de la fonction abs de parametre player_number moins 1
+    #Afficher "vous jouez les", symbols[player_number], "le bot joue les", symbols[ai_player_number]
+    #On assigne a nbTour 0
+    #Si player_number est égal a 0
+        #Alors
+        #Retour de l'executionde la fonction displayGrid
+        #Retour de l'executionde la fonction ai_impossible_move de parametre ai_player_number,nbTour,ai_played_move
+        #On incremente nbTour d'un
+    #Tant que vrai
+        #Retour de l'executionde la fonction displayGrid
+        #Si nbTour est égal a 9
+            #Afficher "Egalité"
+            #Retourner
+        
+        #Si le retour de l'execution de la fonction player_move de parametre player_number est Vrai
+            #Alors
+            #Retour de l'executionde la fonction displayGrid
+            #Afficher "Vous avez gagner"
+            #Retourner
+        #Si nbTour est égal a 9
+            #Afficher "Egalité"
+            #Retourner
+        #Si le retour de l'execution de la fonction ai_impossible_move de parametre ai_player_number,nbTour,ai_played_move est Vrai
+            #Alors
+            #Retour de l'executionde la fonction displayGrid
+            #Afficher "Vous avez perdue"
+            #Retourner
+        #On incremente nbTour d'un
 
 #Retour de l'execution de la fonction intro
